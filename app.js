@@ -28,9 +28,50 @@ mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', (
   document.body.classList.remove('menu-open');
 }));
 
-document.querySelector('[data-scroll-demo]').addEventListener('click', () => {
-  document.getElementById('opt-in-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+const callModal = document.getElementById('call-modal');
+const callModalClose = callModal.querySelector('.modal-close');
+const copyNumber = document.getElementById('copy-number');
+
+const openCallModal = () => {
+  callModal.hidden = false;
+  document.body.classList.add('modal-open');
+  callModalClose.focus();
+};
+
+const closeCallModal = () => {
+  callModal.hidden = true;
+  document.body.classList.remove('modal-open');
+};
+
+document.querySelectorAll('[data-open-call]').forEach((button) => button.addEventListener('click', openCallModal));
+document.querySelectorAll('[data-close-call]').forEach((button) => button.addEventListener('click', closeCallModal));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !callModal.hidden) closeCallModal();
 });
+
+copyNumber.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText('+14244874345');
+    showToast('Phone number copied');
+    copyNumber.textContent = 'Number copied ✓';
+    window.setTimeout(() => { copyNumber.textContent = 'Copy number'; }, 1800);
+  } catch {
+    showToast('Call (424) 487-4345');
+  }
+});
+
+const liveCallTimer = document.getElementById('live-call-timer');
+let liveCallSeconds = 102;
+const updateLiveCallTimer = () => {
+  const minutes = Math.floor(liveCallSeconds / 60);
+  const seconds = liveCallSeconds % 60;
+  liveCallTimer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+};
+updateLiveCallTimer();
+window.setInterval(() => {
+  liveCallSeconds += 1;
+  updateLiveCallTimer();
+}, 1000);
 
 const callsInput = document.getElementById('missed-calls');
 const valueInput = document.getElementById('customer-value');
