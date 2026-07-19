@@ -292,3 +292,7 @@ input[type="range"]::-moz-range-thumb { width: 13px; height: 13px; border-radius
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+.video-gate-close { z-index: 5; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.86); background: rgba(5,9,17,.62); box-shadow: 0 8px 24px rgba(0,0,0,.22); transition: opacity .25s ease, color .2s ease, background .2s ease, border-color .2s ease; }
+.video-gate-close.is-unlocked { opacity: .72; pointer-events: auto; }
+.video-gate-close.is-unlocked:hover, .video-gate-close.is-unlocked:focus-visible { opacity: 1; color: white; background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); }
