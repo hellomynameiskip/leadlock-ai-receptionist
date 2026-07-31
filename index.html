@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="LeadLock AI Receptionist answers every call, qualifies leads, and books appointments 24/7.">
   <title>LeadLock AI Receptionist | Never Miss Another Lead</title>
-  <link rel="stylesheet" href="styles.css">
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (window.location.hash) {
+      history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
+    window.scrollTo(0, 0);
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260730-phonepopup1">
 </head>
 <body>
   <div class="site-shell">
@@ -69,15 +76,15 @@
                 <div class="dashboard-metrics">
                   <div class="metric-card">
                     <span class="metric-label"><i class="metric-symbol">⌕</i> Calls answered</span>
-                    <strong>12.4K</strong><small>↗ 14.2% this month</small>
+                    <strong>12.4K</strong><small><span class="stock-gain">↗ 14.2%</span> this month</small>
                   </div>
                   <div class="metric-card">
                     <span class="metric-label"><i class="metric-symbol">□</i> Appointments</span>
-                    <strong>3.4K</strong><small>↗ 22.8% this month</small>
+                    <strong>3.4K</strong><small><span class="stock-gain">↗ 22.8%</span> this month</small>
                   </div>
                   <div class="metric-card">
                     <span class="metric-label"><i class="metric-symbol">◎</i> Leads captured</span>
-                    <strong>8.9K</strong><small>↗ 18.5% this month</small>
+                    <strong>8.9K</strong><small><span class="stock-gain">↗ 18.5%</span> this month</small>
                   </div>
                   <div class="metric-card metric-featured">
                     <span class="metric-label"><i class="metric-symbol">$</i> Opportunity value</span>
@@ -91,7 +98,6 @@
                 </div>
               </div>
             </article>
-            <div class="dashboard-float float-booking"><span>✓</span><div><strong>Appointment booked</strong><small>Added to calendar</small></div></div>
           </div>
         </div>
 
@@ -100,6 +106,220 @@
           <div class="industry-list" aria-label="Industries served">
             <span>Med Spas</span><i></i><span>Dental</span><i></i><span>HVAC</span><i></i><span>Legal</span><i></i><span>Home Services</span>
           </div>
+        </div>
+      </section>
+
+      <section class="loss-calculator-section section-pad" id="loss-calculator" aria-labelledby="loss-calculator-title">
+        <div class="container">
+          <section class="coverage-comparison reveal" data-coverage-comparison aria-labelledby="coverage-comparison-title">
+            <div class="coverage-heading">
+              <span class="coverage-pill">Answer-rate comparison</span>
+              <h2 id="coverage-comparison-title">A higher booking rate means less<br><span class="text-gradient">when fewer calls get answered.</span></h2>
+              <p>Compare how answer coverage changes the final number of appointments—even when a human converts more of the calls they answer.</p>
+            </div>
+            <div class="coverage-control">
+              <div><label for="coverage-call-volume">Incoming calls</label><output id="coverage-call-volume-output" for="coverage-call-volume">100 calls</output></div>
+              <input class="coverage-slider" id="coverage-call-volume" type="range" min="20" max="500" step="10" value="100" data-coverage-input>
+              <div class="coverage-range"><span>20</span><span>500</span></div>
+            </div>
+            <div class="coverage-grid" aria-live="polite">
+              <article class="coverage-card coverage-card-human">
+                <div class="coverage-card-title"><span aria-hidden="true">55%</span><div><small>Human receptionist</small><strong>Typical answer coverage</strong></div></div>
+                <div class="coverage-flow">
+                  <div><span>Incoming calls</span><strong data-coverage-human-incoming>100</strong></div><i aria-hidden="true">→</i>
+                  <div><span>Calls answered</span><strong data-coverage-human-answered>55</strong><small>55% answered</small></div><i aria-hidden="true">→</i>
+                  <div class="coverage-result"><span>Appointments</span><strong data-coverage-human-booked>19.3</strong><small>35% of answered calls</small></div>
+                </div>
+              </article>
+              <div class="coverage-vs" aria-hidden="true">VS</div>
+              <article class="coverage-card coverage-card-ai">
+                <div class="coverage-card-title"><span aria-hidden="true">100%</span><div><small>LeadLock AI receptionist</small><strong>Every call gets answered</strong></div></div>
+                <div class="coverage-flow">
+                  <div><span>Incoming calls</span><strong data-coverage-ai-incoming>100</strong></div><i aria-hidden="true">→</i>
+                  <div><span>Calls answered</span><strong data-coverage-ai-answered>100</strong><small>100% answered</small></div><i aria-hidden="true">→</i>
+                  <div class="coverage-result"><span>Appointments</span><strong data-coverage-ai-booked>30</strong><small>30% of booked calls</small></div>
+                </div>
+              </article>
+            </div>
+            <div class="coverage-lift">
+              <span>LeadLock booking advantage</span>
+              <strong><b data-coverage-extra>10.8</b> more appointments</strong>
+              <p data-coverage-summary>From the same 100 incoming calls—even with a lower per-call booking rate.</p>
+            </div>
+          </section>
+
+          <div class="loss-calculator-heading reveal">
+            <span class="loss-calculator-pill">Revenue Loss Calculator</span>
+            <h2 id="loss-calculator-title">How Much Are Missed Calls<br><span class="text-gradient">Costing Your Business?</span></h2>
+          </div>
+
+          <div class="loss-calculator-card reveal reveal-delay" data-loss-calculator>
+            <div class="loss-control">
+              <div class="loss-control-label">
+                <label for="loss-missed-calls">Missed Calls Per Day</label>
+                <output id="loss-missed-calls-output" for="loss-missed-calls">10</output>
+              </div>
+              <input class="loss-slider" type="range" id="loss-missed-calls" min="1" max="100" step="1" value="10" data-loss-input="calls">
+              <div class="loss-range-labels"><span>1</span><span>100</span></div>
+            </div>
+
+            <div class="loss-control">
+              <div class="loss-control-label">
+                <label for="loss-conversion-rate">Calls That Convert to Customers</label>
+                <output id="loss-conversion-output" for="loss-conversion-rate">35%</output>
+              </div>
+              <input class="loss-slider" type="range" id="loss-conversion-rate" min="1" max="100" step="1" value="35" data-loss-input="conversion">
+              <div class="loss-range-labels"><span>1%</span><span>100%</span></div>
+            </div>
+
+            <div class="loss-control">
+              <div class="loss-control-label">
+                <label for="loss-customer-value">Average Customer Value</label>
+                <output id="loss-value-output" for="loss-customer-value">$350</output>
+              </div>
+              <input class="loss-slider" type="range" id="loss-customer-value" min="25" max="5000" step="25" value="350" data-loss-input="value">
+              <div class="loss-range-labels"><span>$25</span><span>$5,000</span></div>
+            </div>
+
+            <div class="loss-period-selector" role="group" aria-label="Select revenue loss period">
+              <button class="loss-period-button" type="button" data-loss-period="daily" aria-pressed="false">Daily</button>
+              <button class="loss-period-button" type="button" data-loss-period="weekly" aria-pressed="false">Weekly</button>
+              <button class="loss-period-button is-selected" type="button" data-loss-period="monthly" aria-pressed="true">Monthly</button>
+              <button class="loss-period-button" type="button" data-loss-period="annually" aria-pressed="false">Annually</button>
+            </div>
+
+            <div class="loss-result-panel" aria-live="polite">
+              <span class="loss-result-label" data-loss-result-label>Estimated Revenue Lost Per Month</span>
+              <strong class="loss-result-amount" data-loss-result>$36,750</strong>
+              <p data-loss-percent>That’s approximately 35% of your potential revenue.</p>
+            </div>
+          </div>
+
+          <section class="impact-simulator reveal reveal-delay" id="impact-simulator" data-impact-simulator aria-labelledby="impact-simulator-title">
+            <div class="impact-simulator-heading">
+              <span class="impact-simulator-pill">Interactive call journey</span>
+              <h3 id="impact-simulator-title">One caller. <span class="text-gradient">Two completely different outcomes.</span></h3>
+              <p>Choose a real-world call and watch what happens next—with and without LeadLock.</p>
+            </div>
+
+            <div class="journey-scenarios" role="group" aria-label="Choose a caller scenario">
+              <button class="journey-scenario is-selected" type="button" data-impact-scenario="new-lead" aria-pressed="true"><span>01</span> New customer</button>
+              <button class="journey-scenario" type="button" data-impact-scenario="urgent" aria-pressed="false"><span>02</span> Urgent request</button>
+              <button class="journey-scenario" type="button" data-impact-scenario="after-hours" aria-pressed="false"><span>03</span> After-hours call</button>
+            </div>
+
+            <div class="journey-caller" aria-live="polite">
+              <span class="journey-phone" aria-hidden="true">☎</span>
+              <div><small data-impact-caller-label>New customer calling now</small><strong data-impact-caller-quote>“Hi, I found you online. Do you have any openings this week?”</strong></div>
+              <span class="journey-ringing"><i></i><i></i><i></i> Incoming call</span>
+            </div>
+
+            <div class="journey-paths" aria-live="polite">
+              <article class="journey-path journey-path-missed">
+                <header><span aria-hidden="true">×</span><div><small>Without LeadLock</small><strong>The opportunity fades</strong></div></header>
+                <ol>
+                  <li><i>1</i><div><strong data-impact-without-step-one>Phone keeps ringing</strong><span data-impact-without-detail-one>Your team is already helping another customer.</span></div></li>
+                  <li><i>2</i><div><strong data-impact-without-step-two>Caller reaches voicemail</strong><span data-impact-without-detail-two>They wanted an answer now—not a callback later.</span></div></li>
+                  <li><i>3</i><div><strong data-impact-without-step-three>They call the next business</strong><span data-impact-without-detail-three>The lead disappears before your team is free.</span></div></li>
+                </ol>
+                <footer><span>Final outcome</span><strong data-impact-without-outcome>New customer lost</strong></footer>
+              </article>
+
+              <article class="journey-path journey-path-won">
+                <header><span aria-hidden="true">✓</span><div><small>With LeadLock AI</small><strong>The opportunity moves forward</strong></div></header>
+                <ol>
+                  <li><i>1</i><div><strong data-impact-with-step-one>Answered instantly</strong><span data-impact-with-detail-one>The caller is greeted while their interest is highest.</span></div></li>
+                  <li><i>2</i><div><strong data-impact-with-step-two>Questions answered</strong><span data-impact-with-detail-two>LeadLock confirms the service and collects their details.</span></div></li>
+                  <li><i>3</i><div><strong data-impact-with-step-three>Appointment booked</strong><span data-impact-with-detail-three>The caller chooses an available time before hanging up.</span></div></li>
+                </ol>
+                <footer><span>Final outcome</span><strong data-impact-with-outcome>New appointment secured</strong></footer>
+              </article>
+            </div>
+          </section>
+
+          <section class="relief-calculator reveal reveal-delay" id="front-desk-relief" data-relief-calculator aria-labelledby="relief-calculator-title">
+            <div class="relief-heading">
+              <span class="relief-pill">Front desk relief calculator</span>
+              <h3 id="relief-calculator-title">Give your team room to <span class="text-gradient">breathe.</span></h3>
+              <p>Adjust the workload and watch the pressure lift as LeadLock takes calls off your team’s plate.</p>
+            </div>
+
+            <div class="relief-layout">
+              <div class="relief-controls">
+                <div class="relief-control">
+                  <div class="relief-control-label">
+                    <label for="relief-calls">Calls per hour</label>
+                    <output id="relief-calls-output" for="relief-calls">12 calls</output>
+                  </div>
+                  <input class="relief-slider" id="relief-calls" type="range" min="2" max="30" step="1" value="12" data-relief-input="calls">
+                  <div class="relief-range-labels"><span>2</span><span>30</span></div>
+                </div>
+
+                <div class="relief-control">
+                  <div class="relief-control-label">
+                    <label for="relief-staff">Front desk team members</label>
+                    <output id="relief-staff-output" for="relief-staff">2 people</output>
+                  </div>
+                  <input class="relief-slider" id="relief-staff" type="range" min="1" max="5" step="1" value="2" data-relief-input="staff">
+                  <div class="relief-range-labels"><span>1</span><span>5</span></div>
+                </div>
+
+                <div class="relief-control relief-control-featured">
+                  <div class="relief-control-label">
+                    <label for="relief-coverage">Calls handled by LeadLock</label>
+                    <output id="relief-coverage-output" for="relief-coverage">75%</output>
+                  </div>
+                  <input class="relief-slider" id="relief-coverage" type="range" min="0" max="100" step="5" value="75" data-relief-input="coverage">
+                  <div class="relief-range-labels"><span>None</span><span>Every call</span></div>
+                </div>
+
+                <p class="relief-assumption">Time-saved estimate uses an average four-minute call across an eight-hour workday.</p>
+              </div>
+
+              <div class="relief-character-card">
+                <div class="relief-state">
+                  <span class="relief-state-dot"></span>
+                  <strong data-relief-state>Feeling relieved</strong>
+                </div>
+
+                <div class="relief-scene" data-relief-scene role="img" aria-label="A relaxed front desk team member with fewer phone interruptions">
+                  <span class="relief-call-bubble relief-call-bubble-one" aria-hidden="true">☎</span>
+                  <span class="relief-call-bubble relief-call-bubble-two" aria-hidden="true">!</span>
+                  <span class="relief-call-bubble relief-call-bubble-three" aria-hidden="true">☎</span>
+                  <div class="relief-person" data-relief-person>
+                    <span class="relief-sweat" aria-hidden="true"></span>
+                    <div class="relief-hair" aria-hidden="true"></div>
+                    <div class="relief-head">
+                      <span class="relief-brow relief-brow-left" aria-hidden="true"></span>
+                      <span class="relief-brow relief-brow-right" aria-hidden="true"></span>
+                      <span class="relief-eye relief-eye-left" aria-hidden="true"></span>
+                      <span class="relief-eye relief-eye-right" aria-hidden="true"></span>
+                      <span class="relief-cheek relief-cheek-left" aria-hidden="true"></span>
+                      <span class="relief-cheek relief-cheek-right" aria-hidden="true"></span>
+                      <span class="relief-mouth" aria-hidden="true"></span>
+                    </div>
+                    <div class="relief-body" aria-hidden="true"><span></span></div>
+                  </div>
+                  <div class="relief-desk" aria-hidden="true">
+                    <span class="relief-monitor"></span>
+                    <span class="relief-keyboard"></span>
+                    <span class="relief-mug">☕</span>
+                  </div>
+                </div>
+
+                <div class="relief-pressure">
+                  <div><span>Workload pressure</span><strong data-relief-pressure-label>Low</strong></div>
+                  <div class="relief-pressure-track" aria-hidden="true"><span data-relief-pressure-meter></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relief-results" aria-live="polite">
+              <div><span>Calls removed from the desk</span><strong data-relief-calls-removed>72</strong><small>per workday</small></div>
+              <div><span>Staff time given back</span><strong data-relief-hours-saved>4.8 hrs</strong><small>per workday</small></div>
+              <div><span>Workload pressure reduced</span><strong data-relief-pressure-reduced>75%</strong><small>estimated relief</small></div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -260,7 +480,7 @@
             <span class="section-kicker dark-kicker">Revenue calculator</span>
             <h2>See what missed calls could be costing you.</h2>
             <p>Adjust the sliders using your best estimates. Even a few recovered calls can make an AI receptionist pay for itself.</p>
-            <div class="calculator-note"><span>i</span> Estimate assumes 30% of recovered calls become customers.</div>
+            <div class="calculator-note"><span>i</span> Estimate assumes <span class="stock-gain">30%</span> of recovered calls become customers.</div>
           </div>
 
           <div class="calculator-card reveal reveal-delay">
@@ -358,7 +578,10 @@
               <div><span>02</span><p><strong>Tell it about your business</strong><small>Choose any appointment-based service company.</small></p></div>
               <div><span>03</span><p><strong>Test the full experience</strong><small>Ask questions, check availability, or try booking.</small></p></div>
             </div>
-            <button class="button button-primary button-full" type="button" data-open-video>Hear the AI live <span>→</span></button>
+            <div class="next-step-actions">
+              <a class="button button-primary button-full" href="tel:+14244874345">Call (424) 487-4345</a>
+              <button class="button button-outline button-full" type="button" data-open-video>Hear the AI live <span>→</span></button>
+            </div>
             <small>No pressure and no obligation.</small>
           </div>
         </div>
@@ -381,7 +604,7 @@
   <div class="video-gate" id="video-gate" aria-hidden="true" hidden>
     <div class="video-gate-backdrop" aria-hidden="true"></div>
     <section class="video-gate-dialog" role="dialog" aria-modal="true" aria-labelledby="video-gate-title">
-      <button class="video-gate-close" type="button" aria-label="Close video" data-video-close disabled>
+      <button class="video-gate-close" type="button" aria-label="Close popup" data-video-close disabled>
         <span aria-hidden="true">×</span>
       </button>
 
@@ -407,10 +630,23 @@
         <a class="button button-primary video-gate-phone" href="tel:+14244874345">Call (424) 487-4345</a>
       </div>
 
-      <p class="video-gate-note" data-video-lock-note>Close option appears after 5 seconds.</p>
+      <p class="video-gate-note" data-video-lock-note>Close option appears after 2 seconds.</p>
+
+      <div class="phone-demo-panel" data-phone-demo-panel hidden>
+        <span class="section-kicker dark-kicker">Hear the AI live</span>
+        <h2>Call the AI receptionist yourself.</h2>
+        <p>Act like a real customer calling your own business. This is the fastest way to hear exactly how LeadLock answers, responds, and books.</p>
+        <ol>
+          <li><i>1</i><div><strong>Call the number below</strong><span>The AI will answer just like it would for your business.</span></div></li>
+          <li><i>2</i><div><strong>Ask a real customer question</strong><span>Try pricing, availability, services, or an urgent request.</span></div></li>
+          <li><i>3</i><div><strong>Try to book an appointment</strong><span>See how naturally it collects details and moves the call forward.</span></div></li>
+        </ol>
+        <a class="button button-primary phone-demo-call" href="tel:+14244874345"><span>☎</span> Call (424) 487-4345</a>
+        <small>No pressure and no obligation—this is a live demonstration.</small>
+      </div>
     </section>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite">Demo reset</div>
-  <script src="app.js"></script>
+  <script src="app.js?v=20260731-copy1"></script>
 </body>
 </html>
