@@ -441,10 +441,8 @@ if (coverageComparison) {
     const humanAnswered = calls * .55;
     const humanBooked = humanAnswered * .35;
     const aiAnswered = calls;
-    const aiBookedLow = aiAnswered * .35;
-    const aiBookedHigh = aiAnswered * .4;
-    const extraAppointmentsLow = aiBookedLow - humanBooked;
-    const extraAppointmentsHigh = aiBookedHigh - humanBooked;
+    const aiBooked = aiAnswered * .375;
+    const extraAppointments = aiBooked - humanBooked;
 
     coverageOutput.textContent = `${coverageNumber.format(calls)} calls`;
     coverageOutputs.humanIncoming.textContent = coverageNumber.format(calls);
@@ -452,8 +450,8 @@ if (coverageComparison) {
     coverageOutputs.humanBooked.textContent = coverageNumber.format(humanBooked);
     coverageOutputs.aiIncoming.textContent = coverageNumber.format(calls);
     coverageOutputs.aiAnswered.textContent = coverageNumber.format(aiAnswered);
-    coverageOutputs.aiBooked.textContent = `${coverageNumber.format(aiBookedLow)}–${coverageNumber.format(aiBookedHigh)}`;
-    coverageOutputs.extra.textContent = `${coverageNumber.format(extraAppointmentsLow)}–${coverageNumber.format(extraAppointmentsHigh)}`;
+    coverageOutputs.aiBooked.textContent = coverageNumber.format(aiBooked);
+    coverageOutputs.extra.textContent = coverageNumber.format(extraAppointments);
     coverageOutputs.summary.textContent = `From the same ${coverageNumber.format(calls)} incoming calls—even with a lower per-call booking rate.`;
     updateRangeFill(coverageInput);
   };
